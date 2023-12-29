@@ -36,35 +36,41 @@
     #nav {
         position:relative;
         display: flex;
-        background-color: #052501;
+        background-color: #184911;  
+       
     }
     #menu {
         position: absolute;
         top:20%;
         text-align: center;
         right: 0;
+        padding: 10px 10px 5px 5px;
     }
-    #menu a {
+    /* liness in between ng menus */
+    #menu a {   
         margin-right: 10px;
+        border-right: 1px solid grey;
         font-family: 'Times New Roman';
-        padding: 5px 10px 5px 5px;
+        padding: 10px 10px 5px 5px;
         font-size: 25px;
         color:white;
+        border-radius: 15px;
+
     }
     #menu a:hover {
         text-decoration: underline #fdde87c7;
     }
-    .login {
-        text-decoration: none;
-    }
-
     /*MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNN*/
 
     #main {
         position: relative;
+        display:flex;
+        height: 72vh;
         margin: 5px;
         background-color: rgba(0, 0, 0, 0.404);
         padding: 1vh;
+        align-items:center;
+        justify-content: center;
     }
 
     /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
@@ -81,12 +87,9 @@
         list-style-type: none;  
         text-decoration: none;
         display: inline-flex;
+       
     }
-    #findUs li{
-        padding: 0 20px 0 20px;
-        border-right: .5px solid black;
-        height: 30px;
-    }
+    
     #findUs img {
         height: 30px;
         width: 30px;
@@ -95,6 +98,79 @@
             transition:.3s;
         }
     }
+
+    /*Log-in Form*/
+    .login-container {
+        position: relative;
+        background-color: #052501;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #0000001a;
+        font-size: 20px;
+        max-width: fit-content;
+    }
+
+        .login-form {
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid rgb(250, 201, 151);
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+        }
+
+        .form-group button {
+            background-color: rgb(250, 201, 151);
+            color: #FFFFFF;
+            padding: 10px;
+            border: 1px solid rgb(250, 201, 151);
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .form-group button:hover {
+            background-color: rgb(10, 148, 10);
+            border: 1px solid #052501;
+        }
+        #SignBttn {
+            text-align: center;
+        }
+        #orSignup {
+            display: flex;
+            justify-content: center;
+        }
+        #orSignup img {
+            margin: 20px 10px 0 10px;
+            width: 50px;
+            height: 50px;
+        }
+        #signUp {
+            margin-top: 10px;
+            color: White;
+            font-size: 18px;
+            &:hover {
+                color: grey;
+                text-decoration: underline;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -102,8 +178,8 @@
 
         <header id="header">
             <nav id="nav">
-                <img style="padding-left: 1%; height: 20ox; width: 70px;  mix-blend-mode: color-burn;" src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/377225073_908543530641278_6120858319313913391_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGi9NKKhVa7KQzQraluN_NTCKFbiX3qnskIoVuJfeqeySuEKGGm8x_eHhZ-ZjE_Nc85dbgyTb5mKcp2KlYSYmW0&_nc_ohc=uLJHOXJHNg8AX_TBB9_&_nc_ht=scontent.fmnl9-4.fna&oh=03_AdQSauZ_APlwscrs8ELgxa4zBtcOrMa5xlJOYhCEdMPebg&oe=65B3602A"/>
-                <h1 style="padding-left: 1%;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
+                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
+                <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
                 <div id="menu">
                     <a class="rightBorder" href="homeAFP.html"><span>Home</span></a>
                     <a class="rightBorder" href="aboutAFP.html"><span>About</span></a>
@@ -115,17 +191,48 @@
         </header>
 
         <main id="main">
-
+            <div class="login-container">
+                <span style="color: white;">Welcome to</span>
+                <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
+                <span style="color: white;">&</span>
+                <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
+                <form class="login-form" action="your_server_side_script.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Enter your username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Enter your password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group" id="SignBttn">
+                        <button type="submit">Sign In</button>
+                        <div id="orSignup">
+                            <a href="#"><img src="Pics/Login-Pics/fbicon.png"/></a>
+                            <a href="#"><img src="Pics/Login-Pics/googleicon.png"/></a>
+                            <a href="#"><img src="Pics/Login-Pics/xicon.webp"/></a>
+                        </div>
+                        <hr>
+                        <a href="#" id="signUp">Sign-Up</a>
+                    </div>
+                </form>
+            </div>
         </main>
 
         <footer id="footer">
-            <h2 style="font-family: serif; color:rgb(255, 255, 255); position: absolute; left: 10px;">© 2023-2024 <span style="color: rgb(10, 148, 10);">A</span><span style="color:rgb(250, 201, 151);">FP</span> Org.</h2>
-            <h3 style="font-family: Times New Roman; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
+            <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
+            <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
             <ul id="findUs">
                 <li><a href="#"><img src="https://cdn1.iconfinder.com/data/icons/social-media-2285/512/Colored_Facebook3_svg-512.png"/></a></li>
-                <li><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png"/></a></li>
-                <li style="border: none;"><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Youtube_colored_svg-512.png"/></a></li>
+                
             </ul>
+
+            <ul id="findUs">
+                <li><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png"/></a></li>
+                
+            </ul>
+
+            
         </footer>
 
     </div>
