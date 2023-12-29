@@ -170,6 +170,15 @@
         width: 100%;
       }
     }
+    #signIn {
+            margin-top: 10px;
+            color: rgb(10, 148, 10);
+            font-size: 18px;
+            &:hover {
+                color: grey;
+                text-decoration: underline;
+            }
+        }
     
 </style>
 </head>
@@ -221,10 +230,13 @@
                     </div>
 
                       <input type="submit" value="Register" name="sign-up">
+                      <hr width="100%">
+                      <div style="display: flex; justify-content: center; text-align: center;"><a href="loginAFP.html" id="signIn">Sign-in</a></div>
+                      
                   </form>
                 </div>
 
-                    <?php
+                    <!--<?php
                       $DBHost = "localhost"; //hostname
                       $DBUser = "root"; //username
                       $DBPass = ""; //password
@@ -239,7 +251,7 @@
 			                        echo "<br>Registered Successfully";
 		                        }
 
-                    ?>
+                    ?>-->
         </main>
 
         <footer id="footer">
