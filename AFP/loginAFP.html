@@ -135,7 +135,7 @@
         }
 
         .form-group button {
-            background-color: rgb(250, 201, 151);
+            background-color: rgb(112, 60, 0);
             color: #FFFFFF;
             padding: 10px;
             border: 1px solid rgb(250, 201, 151);
@@ -158,12 +158,18 @@
         }
         #orSignup img {
             margin: 20px 10px 0 10px;
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
+            transition: .3s;
+            filter: invert(100%);
+            &:hover {
+                filter: none;
+            }
         }
+
         #signUp {
             margin-top: 10px;
-            color: White;
+            color: rgb(10, 148, 10);
             font-size: 18px;
             &:hover {
                 color: grey;
@@ -196,7 +202,7 @@
                 <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
                 <span style="color: white;">&</span>
                 <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
-                <form class="login-form" action="your_server_side_script.php" method="post">
+                <form class="login-form" action="dashboardAFP.html" method="post">
                     <div class="form-group">
                         <label for="username">Enter your username:</label>
                         <input type="text" id="username" name="username" required>
@@ -210,7 +216,7 @@
                         <div id="orSignup">
                             <a href="#"><img src="Pics/Login-Pics/fbicon.png"/></a>
                             <a href="#"><img src="Pics/Login-Pics/googleicon.png"/></a>
-                            <a href="#"><img src="Pics/Login-Pics/xicon.webp"/></a>
+                            <a href="#"><img id="x" src="Pics/Login-Pics/xicon.webp"/></a>
                         </div>
                         <hr>
                         <a href="#" id="signUp">Sign-Up</a>
