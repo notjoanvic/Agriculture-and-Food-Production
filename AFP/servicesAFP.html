@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agricultural Food Production</title>
-<style>
+    <style>
     /*BBBBBBBBBBBBBBBOOOOOOOOOOOOOOOOODDDDDDDDDDDDDDDDDDYYYYYYYYYY*/
     * a {
         text-decoration: none;
         display: inline-block;
+        
     }
     body {
         background-image: url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-color: beige;
         background-repeat: no-repeat;
         background-size: cover;
-        height:100vh;
+        height: auto;
         margin: 0;
     }
     #mainBody {
@@ -29,7 +30,6 @@
     }
 
     /*HHHHEEEEEEEEEEEEAAAAAAAAAAAAAAAADDDDDDDDDDDDEEEEEEEEEEEEERRRRRRRRRRR*/
-
     #nav {
         position:relative;
         display: flex;
@@ -54,9 +54,6 @@
         border-radius: 15px;
 
     }
-    #menu a:hover {
-        text-decoration: underline #fdde87c7;
-    }
 
     /*MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNN*/
 
@@ -65,42 +62,122 @@
         margin: 5px;
         background-color: rgba(0, 0, 0, 0.404);
         padding: 1vh;
+        border-radius: 15px;
+
     }
 
-    /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
+        /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
 
-    #footer {
-        position: relative;
-        display: flex;
-        background-color: #291601;
-        height: auto;
-        align-items: center;
-        justify-content: center;
-    }
-    #findUs {
-        list-style-type: none;  
-        text-decoration: none;
-        display: inline-flex;
-       
-    }
-    
-    #findUs img {
-        height: 30px;
-        width: 30px;
-        &:hover{
-            mix-blend-mode: multiply;
-            transition:.3s;
+        #footer {
+            position: relative;
+            display: flex;
+            background-color: #291601;
+            height: auto;
+            align-items: center;
+            justify-content: center;
         }
-    
-    }
-</style>
+
+        #findUs {
+            list-style-type: none;
+            text-decoration: none;
+            display: inline-flex;
+
+        }
+
+        #findUs img {
+            height: 30px;
+            width: 30px;
+
+            &:hover {
+                mix-blend-mode: multiply;
+                transition: .3s;
+            }
+
+        }
+
+                section {
+                    margin: 100;
+                   
+                }
+
+                .container {
+                    width: 100%;
+                    margin-top: -3%;
+                    
+                    overflow: hidden;
+                }
+
+                .about-section {
+                    display: flex;
+                     justify-content: space-between;
+                      margin-top: 2em; 
+                        margin-bottom: 3em; 
+                }
+
+                .about-card {
+                    flex: 1;
+                    margin: 0 5em;
+                    padding: 20;
+                    background-color: #db8727;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    transition: transform 0.3s ease-in-out;
+                }
+                
+                .about-card2 {
+                    flex: 1;
+                    margin: 0 10em;
+                    padding: 20;
+                    background-color: #db8727;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .about-card img {
+                   width: 100%;
+                   height: 300px; /* Set a specific height */
+                   object-fit: cover; /* Maintain aspect ratio and cover the container */
+                   border-radius: 8px;
+                  }
+                  .about-card2 img {
+                   width: 100%;
+                   height: 300px; /* Set a specific height */
+                   object-fit: scale-down; /* Maintain aspect ratio and cover the container */
+                   border-radius: 8px;
+                  }
+
+
+                .about-card:hover {
+                    transform: scale(1.05);
+                }
+                .about-card2:hover {
+                    transform: scale(1.05);
+                }
+
+                img {
+                    max-width: 100%;
+                    min-height: max-content;
+                    border-radius: 8px;
+                   
+                }
+
+                h1 {
+                    margin-bottom: 1em;
+                    font-size: 30px;
+                    margin-top: 1%;
+                    text-align: center;
+                }
+    </style>
 </head>
 <body>
     <div id="mainBody">
 
         <header id="header">
             <nav id="nav">
-                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="logo.png"/>
+                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
                 <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
                 <div id="menu">
                     <a href="homeAFP.html"><span>Home</span></a>
@@ -110,12 +187,67 @@
                     <a href="loginAFP.html" style="border: none;"><span>Log-in</span></a>
                 </div>
             </nav>
-        </header>
+            <header>
+                <h1>SERVICES</h1>
+            </header>
 
-        <main id="main">
+            <section class="container">
+                <div class="about-section">
+                    <div class="about-card">
+                        <img src="tao.jpg" alt="History">
+                        <h2>Be one of our Staff</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                    </div>
 
-        </main>
+                    <div class="about-card">
+                        <img src="kamay.jpg" alt="Mission">
+                        <h2>Business Partnership</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                    </div>
 
+                    <div class="about-card">
+                        <img src="farmland.jpg" alt="Values">
+                        <h2>Grow your farmland with us!</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="about-card2">
+                        <img src="fishpond.jpg" alt="Team">
+                        <h2>Fishpond Services</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                    </div>
+
+                    <div class="about-card2">
+                        <img src="achievements.jpg" alt="Achievements">
+                        <h2>Farming staff ageny</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </section>
+        </body>
+    </main>
         <footer id="footer">
             <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
             <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>

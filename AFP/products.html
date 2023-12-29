@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agricultural Food Production</title>
+
 <style>
-    /*BBBBBBBBBBBBBBBOOOOOOOOOOOOOOOOODDDDDDDDDDDDDDDDDDYYYYYYYYYY*/
-    * a {
+     /*BBBBBBBBBBBBBBBOOOOOOOOOOOOOOOOODDDDDDDDDDDDDDDDDDYYYYYYYYYY*/
+     * a {
         text-decoration: none;
         display: inline-block;
+        
     }
     body {
         background-image: url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-color: beige;
         background-repeat: no-repeat;
         background-size: cover;
-        height:100vh;
+        height: auto;
         margin: 0;
     }
     #mainBody {
@@ -29,7 +31,6 @@
     }
 
     /*HHHHEEEEEEEEEEEEAAAAAAAAAAAAAAAADDDDDDDDDDDDEEEEEEEEEEEEERRRRRRRRRRR*/
-
     #nav {
         position:relative;
         display: flex;
@@ -41,7 +42,8 @@
         top:20%;
         text-align: center;
         right: 0;
-        padding: 10px 10px 5px 5px;
+        padding: 5px 10px 5px 5px;
+        
     }
     /* liness in between ng menus */
     #menu a {   
@@ -54,9 +56,6 @@
         border-radius: 15px;
 
     }
-    #menu a:hover {
-        text-decoration: underline #fdde87c7;
-    }
 
     /*MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNN*/
 
@@ -65,34 +64,80 @@
         margin: 5px;
         background-color: rgba(0, 0, 0, 0.404);
         padding: 1vh;
+        border-radius: 15px;
+        border-bottom: 50%;
+
+
     }
 
-    /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
+    .introductionF{
+        position: center;
+        margin-top: 10%;
+    }
 
-    #footer {
+    #intoduction {
         position: relative;
-        display: flex;
-        background-color: #291601;
-        height: auto;
-        align-items: center;
-        justify-content: center;
+        max-width: 550px;
+        max-height: 250px;
+        padding: 0 3vh 3vh 3vh;
+        background-color: #179b17;
+        border-radius: 20%;
+        overflow: hidden;
     }
-    #findUs {
-        list-style-type: none;  
-        text-decoration: none;
-        display: inline-flex;
-       
+
+    #product-list {
+        position: relative;
+        display:flex;
+    }
+    #product-list h3{
+        display: inline-block;
+        text-align: center;
+        padding:0 5px 0 5px;
+    }
+    #product-list a {
+        color:aliceblue;
+        &:hover {text-decoration: underline aliceblue;}
+    }
+    #product-list img{
+        height: 150px;
+        width: 150px;
+        border-radius: 20px;
+        transition: 1s;
+        &:hover {transform: scale(1.2);}
     }
     
-    #findUs img {
-        height: 30px;
-        width: 30px;
-        &:hover{
-            mix-blend-mode: multiply;
-            transition:.3s;
+
+   /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
+
+   #footer {
+            position: relative;
+            display: flex;
+            background-color: #291601;
+            height: auto;
+            align-items: center;
+            justify-content: center;
         }
-    
-    }
+
+        #findUs {
+            list-style-type: none;
+            text-decoration: none;
+            display: inline-flex;
+
+        }
+
+        #findUs img {
+            height: 30px;
+            width: 30px;
+
+            &:hover {
+                mix-blend-mode: multiply;
+                transition: .3s;
+            }
+
+        }
+
+
+
 </style>
 </head>
 <body>
@@ -100,8 +145,8 @@
 
         <header id="header">
             <nav id="nav">
-                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="logo.png"/>
-                <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
+                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
+                <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1> 
                 <div id="menu">
                     <a href="homeAFP.html"><span>Home</span></a>
                     <a href="aboutAFP.html"><span>About</span></a>
@@ -111,11 +156,91 @@
                 </div>
             </nav>
         </header>
+    <main id="main">
+                <div id="introductionF">
+                    <p style="font-size: 40px;">
+                        <span style="color:rgb(13, 190, 28); text-align: center;"><b>Food Crops Category</b></span>                   
+                    </p>
+                   </div>
 
         <main id="main">
+                <div id="introduction">
+                    <p style="font-size: 30px;">
+                        <span style="color:rgb(250, 201, 151);">Fruit</span> 
+	<p style="font-size: 20px;">
+	<span>-Hand-picked selection of different types of fruits, including many seasonal, diverse, tropical     and many more fruit varieties. Order all your favorite fruit with ease for delivery nation wide. 100% guaranteed fresh upon delivery </span>     
+                </p>   </p>
+                   </div>
+                <div id="product-list">
 
+              <h3><a href="rgb">Grapes</a><p><img src="Grapes.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Apple</a><p><img src="Apple.jpg"></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Pineapple</a><p><img src="Pineapple.jpg"></p><p>100.00 php /kg</p></h3>
+	      <h3><a href="rgb">Orange</a><p><img src="Orange.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Banana</a><p><img src="Banana.jpg" ></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Lemon</a><p><img src="Lemon.jpg"></p><p>100.00 php /kg</p></h3>
+	      <h3><a href="rgb">Watermelon</a><p><img src="Watermelon.jpg" ></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Strawberry</a><p><img src="Strawberry.jpg"></p><p>100.00 php /kg</p></h3>      
+		 </div>
         </main>
 
+<main id="main">
+                <div id="introduction">
+                    <p style="font-size: 30px;">
+                        <span style="color:rgb(250, 201, 151);">Vegetables</span>                   
+                   <p style="font-size: 20px;">
+	<span> -Fresher than the grocery's produce you can assure that every vegetable that we offers are all organic and natural with no preservative. .Also, No need to worry about missing vegetable item on your list, we offers all kinds of veggies
+ </p> </p>
+                   </div>
+                <div id="product-list">
+
+              <h3><a href="rgb">Bell Pepper</a><p><img src="Bellpepper.jpeg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Broccoli</a><p><img src="Broccoli.jpg"></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Eggplant</a><p><img src="Eggplant.jpg"></p><p>100.00 php /kg</p></h3>
+	      <h3><a href="rgb">Onion</a><p><img src="Onion.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Garlic</a><p><img src="Garlic.jpg" ></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Carrots</a><p><img src="Carrots.jpg"></p><p>100.00 php /kg</p></h3>
+	      <h3><a href="rgb">Cabbage</a><p><img src="Cabbage.jpg" ></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Tomato</a><p><img src="Tomato.jpg"></p><p>100.00 php /kg</p></h3>      
+		 </div>
+        </main>
+
+<main id="main">
+                <div id="introduction">
+                    <p style="font-size: 30px;">
+                        <span style="color:rgb(250, 201, 151);">Cereals</span>                   
+                  
+		<p style="font-size: 20px;">
+                        <span ></span>                   
+                    </p>  </p>
+                   </div>
+                <div id="product-list">
+
+              <h3><a href="rgb">Wheat</a><p><img src="Wheat.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Corn</a><p><img src="Corn.jpg"></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Rice</a><p><img src="Rice.jpg"></p><p>100.00 php /kg</p></h3>
+	      <h3><a href="rgb">Barley</a><p><img src="Barley.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Millet</a><p><img src="Millet.jpg" ></p><p>100.00 php /kg</p></h3>          
+  	       
+		 </div>
+        </main>
+
+<main id="main">
+                <div id="introduction">
+                    <p style="font-size: 30px;">
+                        <span style="color:rgb(250, 201, 151);">Seeds</span>                   
+                    </p>
+                   </div>
+                <div id="product-list">
+
+              <h3><a href="rgb">Grains</a><p><img src="Grains.jpg"></p><p>100.00 php /kg</p></h3>        
+	      <h3><a href="rgb">Nuts</a><p><img src="Nuts.jpeg"></p><p>100.00 php /kg</p></h3>          
+  	      <h3><a href="rgb">Legumes</a><p><img src="Legumes.jpg"></p><p>100.00 php /kg</p></h3>
+	              
+  	       
+		 </div>
+        </main>
+    </main>
         <footer id="footer">
             <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
             <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
@@ -131,6 +256,7 @@
 
             
         </footer>
+
     </div>
 </body>
 </html>
