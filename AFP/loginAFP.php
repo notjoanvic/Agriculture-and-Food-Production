@@ -10,9 +10,6 @@
         text-decoration: none;
         display: inline-block;
     }
-    .rightBorder {
-        border-right: 1px solid grey;
-    }
     body {
         background-image: url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-color: beige;
@@ -87,7 +84,8 @@
         list-style-type: none;  
         text-decoration: none;
         display: inline-flex;
-       
+        column-gap: 20px;
+        margin-left: -40px;
     }
     
     #findUs img {
@@ -161,9 +159,8 @@
             width: 30px;
             height: 30px;
             transition: .3s;
-            filter: invert(100%);
             &:hover {
-                filter: none;
+                filter: invert(100%);
             }
         }
 
@@ -187,18 +184,18 @@
                 <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
                 <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
                 <div id="menu">
-                    <a class="rightBorder" href="homeAFP.html"><span>Home</span></a>
-                    <a class="rightBorder" href="aboutAFP.html"><span>About</span></a>
-                    <a class="rightBorder" href="products.html"><span>Products</span></a>
-                    <a class="rightBorder" href="servicesAFP.html"><span>Services<span></a>
-                    <a id="login" style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="loginAFP.html" style="border: none;"><span>Log-in</span></a>
+                    <a href="homeAFP.html"><span>Home</span></a>
+                    <a href="aboutAFP.html"><span>About</span></a>
+                    <a href="products.html"><span>Products</span></a>
+                    <a href="servicesAFP.html"><span>Services<span></a>
+                    <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="http://localhost/AFP/loginAFP.php" style="border: none;"><span>Log-in</span></a>
                 </div>
             </nav>
         </header>
 
         <main id="main">
             <div class="login-container">
-                <span style="color: white;">Welcome to</span>
+                <span style="color: white;" >Welcome to</span>
                 <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
                 <span style="color: white;">&</span>
                 <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
@@ -222,38 +219,21 @@
                             <a href="#"><img id="x" src="Pics/Login-Pics/xicon.webp"/></a>
                         </div>
                         <hr>
-                        <a href="#" id="signUp">Sign-Up</a>
+                        <a href="http://localhost/AFP/Register.php" id="signUp">Sign-Up</a>
                     </div>
                 </form>
 
             </div>
-        <?php
-            $DBHost = "localhost"; //hostname
-            $DBUser = "root"; //username
-            $DBPass = ""; //password
-            $DBName = "afpdb"; //Name
-
-            $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
-
-            if(!$conn) {die("Connection failed:" . mysqli_error());}
-            
-        ?>
         </main>
 
         <footer id="footer">
             <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
             <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
             <ul id="findUs">
-                <li><a href="#"><img src="https://cdn1.iconfinder.com/data/icons/social-media-2285/512/Colored_Facebook3_svg-512.png"/></a></li>
-                
+                <li><a href="#"><img src="Pics/Icon-pics/facebook.png"/></a></li>
+                <li><a href="#"><img src="Pics/Icon-pics/instagram.png"/></a></li>
+                <li><a href="#"><img src="Pics/Icon-pics/pinterest.png"/></a></li>
             </ul>
-
-            <ul id="findUs">
-                <li><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png"/></a></li>
-                
-            </ul>
-
-            
         </footer>
 
     </div>

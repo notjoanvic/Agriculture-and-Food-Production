@@ -10,9 +10,6 @@
         text-decoration: none;
         display: inline-block;
     }
-    .rightBorder {
-        border-right: 1px solid grey;
-    }
     body {
         background-image: url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-color: beige;
@@ -85,9 +82,9 @@
         list-style-type: none;  
         text-decoration: none;
         display: inline-flex;
-       
+        column-gap: 20px;
+        margin-left: -40px;
     }
-    
     #findUs img {
         height: 30px;
         width: 30px;
@@ -95,10 +92,11 @@
             mix-blend-mode: multiply;
             transition:.3s;
         }
-    
     }
+    
     .container {
       position: relative;
+      text-align: center;
       background-color: #052501;
       padding:10px; 
       border-radius: 8px;
@@ -170,6 +168,15 @@
         width: 100%;
       }
     }
+    #signIn {
+            margin-top: 10px;
+            color: rgb(10, 148, 10);
+            font-size: 18px;
+            &:hover {
+                color: grey;
+                text-decoration: underline;
+            }
+        }
     
 </style>
 </head>
@@ -192,7 +199,6 @@
 
         <main id="main">
             <div class="container">
-              <span style="color: white;">Welcome to</span>
               <span style="color: rgb(10, 148, 10);">Agriculture</span>
               <span style="color: white;">&</span>
               <span style=" color:rgb(250, 201, 151);">Food Production</span>
@@ -221,10 +227,13 @@
                     </div>
 
                       <input type="submit" value="Register" name="sign-up">
+                      <hr width="100%">
+                      <div style="display: flex; justify-content: center; text-align: center;"><a href="http://localhost/AFP/loginAFP.php" id="signIn">Sign-in</a></div>
+                      
                   </form>
                 </div>
 
-                    <?php
+                    <!--<?php
                       $DBHost = "localhost"; //hostname
                       $DBUser = "root"; //username
                       $DBPass = ""; //password
@@ -239,24 +248,18 @@
 			                        echo "<br>Registered Successfully";
 		                        }
 
-                    ?>
+                    ?>-->
         </main>
 
         <footer id="footer">
-            <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
-            <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
-            <ul id="findUs">
-                <li><a href="#"><img src="https://cdn1.iconfinder.com/data/icons/social-media-2285/512/Colored_Facebook3_svg-512.png"/></a></li>
-                
-            </ul>
-
-            <ul id="findUs">
-                <li><a href="#"><img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png"/></a></li>
-                
-            </ul>
-
-            
-        </footer>
+          <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
+          <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>
+          <ul id="findUs">
+              <li><a href="#"><img src="Pics/Icon-pics/facebook.png"/></a></li>
+              <li><a href="#"><img src="Pics/Icon-pics/instagram.png"/></a></li>
+              <li><a href="#"><img src="Pics/Icon-pics/pinterest.png"/></a></li>
+          </ul>
+      </footer>
 
     </div>
 </body>
