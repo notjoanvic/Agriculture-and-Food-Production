@@ -1,3 +1,28 @@
+<?php
+$DBHost = "localhost"; //hostname
+$DBUser = "root"; //username
+$DBPass = ""; //password
+$DBName = "afpdb"; //Name
+$conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
+if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
+
+    if (isset($_POST['submit'])) { // Check if the form is submitted
+        $AccUsername = $_POST['emp_username'];
+        $AccPass = $_POST['emp_password'];
+            $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
+            $result = $conn->query($query);
+            $row = $result->fetch_assoc();
+        if ($result->num_rows > 0) {
+            header("Location: http://localhost/AFP/dashboardAFP.html");
+            exit();
+        } 
+        elseif (isset($row['employee_PW']) != $AccPass) { ?><style>#password {border: 2px solid #c51919}</style><?php }
+        else { ?><style> #username {border: 2px solid #c51919} #password {border: 2px solid #c51919}</style> <?php }
+        
+        $conn->close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,11 +202,13 @@
 </style>
 </head>
 <body>
+    <!--define as the main container of the header(navigation bar), main(contains the contents), 
+    and footer(initially contacts)-->
     <div id="mainBody">
-
+        <!-- Contains the navigation bar that holds the button link to navigate off and on the pages-->
         <header id="header">
             <nav id="nav">
-                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
+                <img style="padding-left: 2%; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
                 <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
                 <div id="menu">
                     <a href="homeAFP.html"><span>Home</span></a>
@@ -192,27 +219,51 @@
                 </div>
             </nav>
         </header>
-
+        <!-- Contains the main role or function of the selected page where it holds the data and the main contents of the page -->
         <main id="main">
+            <!-- contains the form of login -->
             <div class="login-container">
                 <span style="color: white;" >Welcome to</span>
                 <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
                 <span style="color: white;">&</span>
                 <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
+                
+                <!--?php
+                $DBHost = "localhost"; //hostname
+                $DBUser = "root"; //username
+                $DBPass = ""; //password
+                $DBName = "afpdb"; //Name
+                $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
 
-                <form class="login-form" action="dashboardAFP.html" method="post">
+                if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
+                    if (isset($_POST['submit'])) { // Check if the form is submitted
+                    $AccUsername = $_POST['emp_username'];
+                    $AccPass = $_POST['emp_password'];
+                        $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
+                        $result = $conn->query($query);
+                        $row = $result->fetch_assoc();
+                        if ($result->num_rows > 0) {
+                            header("Location: http://localhost/AFP/dashboardAFP.html");
+                            exit();
+                        } 
+                        
+                        else { ?><style>#password{border: 2px solid #c51919};</style>?php }
+                    }
+                ?>-->
+
+
+                <form class="login-form" method="post">
                     <div class="form-group">
-                        <label for="username">Enter your username:</label>
-                        <input type="text" id="username" name="username" required>
+                        <label for="username">Enter your Username:</label>
+                        <input type="text" id="username" name="emp_username" value="<?php echo isset($_POST['emp_username']) ? htmlspecialchars($_POST['emp_username']) : ''; ?>" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="password">Enter your password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="password">Enter your Password:</label>
+                        <input type="password" id="password" name="emp_password" required>
                     </div>
-
+                    
                     <div class="form-group" id="SignBttn">
-                        <button type="submit">Sign In</button>
+                        <button type="submit" name="submit">Sign In</button>
                         <div id="orSignup">
                             <a href="#"><img src="Pics/Login-Pics/fbicon.png"/></a>
                             <a href="#"><img src="Pics/Login-Pics/googleicon.png"/></a>
@@ -222,10 +273,37 @@
                         <a href="http://localhost/AFP/Register.php" id="signUp">Sign-Up</a>
                     </div>
                 </form>
+            <!-- Database for the login-->
+                <!--?php
+                    $DBHost = "localhost"; //hostname
+                    $DBUser = "root"; //username
+                    $DBPass = ""; //password
+                    $DBName = "afpdb"; //Name
+                    $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
+                    if(!$conn) {die("Connection failed:" . mysqli_connect_error());}
 
+                    if (isset($_POST['submit'])) { // Assuming your submit button has the name 'submit'
+                        $AccUsername = $_POST['emp_username'];
+                        $AccPass = $_POST['emp_password'];
+
+                        $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
+                        $result = $conn->query($query);
+
+                        if ($result->num_rows > 0) {
+                            header("Location: http://localhost/AFP/dashboardAFP.html");
+                            echo "Login successful!";
+                            // Perform additional actions, such as setting session variables
+                            // Close the database connection
+                        $conn->close();
+                        } else { echo "Login failed. Please check your username and password.";}
+                            
+                            
+                    }
+                 ?>-->
+</form>
             </div>
         </main>
-
+        <!-- Footer -->
         <footer id="footer">
             <h2 style="font-family: Lucida Console; color:rgb(255, 255, 255); position: absolute; left: 10px;">GROUP 10 <span style="color: rgb(10, 148, 10);"></h2>
             <h3 style="font-family: Lucida Console; position: absolute; right: 30px; bottom: 5px;">Contact Us: (63+)9123456789</h3>

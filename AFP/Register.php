@@ -185,7 +185,7 @@
 
         <header id="header">
             <nav id="nav">
-                <img style="padding-left: 2%; height: 20ox; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
+                <img style="padding-left: 2%; width: 70px; border-radius: 80px; padding-top: 1%; padding-bottom: 1%" src="Pics/Logo-Pics/logo.png"/>
                 <h1 style=" padding: 20px 15px 5px 5px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> & <span style=" color:rgb(250, 201, 151);">Food Production</span></h1>
                 <div id="menu">
                     <a class="rightBorder" href="homeAFP.html"><span>Home</span></a>
@@ -233,13 +233,13 @@
                   </form>
                 </div>
 
-                    <!--<?php
+                    <?php
                       $DBHost = "localhost"; //hostname
                       $DBUser = "root"; //username
                       $DBPass = ""; //password
                       $DBName = "afpdb"; //Name
                       $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
-                        if(!$conn) {die("Connection failed:" . mysqli_error());}
+                        if(!$conn) {die("Connection failed:" . mysqli_connect_error());}
 
                             if(isset($_POST['sign-up']) !='') {
 			                        $sql = "INSERT into employee (`employee_Email`,`employee_Name`,`employee_Username`,`employee_PW`)
@@ -247,8 +247,7 @@
 			                        $result = mysqli_query($conn,$sql);
 			                        echo "<br>Registered Successfully";
 		                        }
-
-                    ?>-->
+                    ?>
         </main>
 
         <footer id="footer">
