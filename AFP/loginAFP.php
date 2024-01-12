@@ -1,3 +1,4 @@
+<!-- Database for the login-->
 <?php
 $DBHost = "localhost"; //hostname
 $DBUser = "root"; //username
@@ -5,22 +6,25 @@ $DBPass = ""; //password
 $DBName = "afpdb"; //Name
 $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
 if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
-
     if (isset($_POST['submit'])) { // Check if the form is submitted
-        $AccUsername = $_POST['emp_username'];
+        $AccUsername = $_POST['empUser'];
         $AccPass = $_POST['emp_password'];
             $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
             $result = $conn->query($query);
             $row = $result->fetch_assoc();
+
+            //$displayUsername = isset($row['employee_Username']) === $AccUsername && isset($row['employee_PW']) !== $AccPass ? htmlspecialchars($AccUsername) : ''; 
+        
         if ($result->num_rows > 0) {
             header("Location: http://localhost/AFP/dashboardAFP.html");
             exit();
-        } 
-        elseif (isset($row['employee_PW']) != $AccPass) { ?><style>#password {border: 2px solid #c51919}</style><?php }
-        else { ?><style> #username {border: 2px solid #c51919} #password {border: 2px solid #c51919}</style> <?php }
-        
-        $conn->close();
+        }
+        else {
+            $errorStyleUsername = 'border: 2px solid #c51919;';
+            $errorStylePassword = 'border: 2px solid #c51919;';
+        }
     }
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +44,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         background-color: beige;
         background-repeat: no-repeat;
         background-size: cover;
-        height:100vh;
+        height:auto;
         margin: 0;
     }
     #mainBody {
@@ -59,7 +63,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         position:relative;
         display: flex;
         background-color: #184911;  
-       
+        overflow: hidden;
     }
     #menu {
         position: absolute;
@@ -87,11 +91,9 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
     #main {
         position: relative;
         display:flex;
-        height: 72vh;
         margin: 5px;
         background-color: rgba(0, 0, 0, 0.404);
         padding: 1vh;
-        align-items:center;
         justify-content: center;
     }
 
@@ -99,11 +101,13 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
 
     #footer {
         position: relative;
+        bottom:0;
         display: flex;
         background-color: #291601;
         height: auto;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
     #findUs {
         list-style-type: none;  
@@ -126,11 +130,10 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
     .login-container {
         position: relative;
         background-color: #052501;
-        padding: 10px;
+        padding: 25px;
         border-radius: 8px;
         box-shadow: 0 0 10px #0000001a;
         font-size: 20px;
-        max-width: fit-content;
     }
 
         .login-form {
@@ -202,8 +205,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
 </style>
 </head>
 <body>
-    <!--define as the main container of the header(navigation bar), main(contains the contents), 
-    and footer(initially contacts)-->
+    <!--define as the main container of the header(navigation bar), main(contains the contents), and footer(initially contacts)-->
     <div id="mainBody">
         <!-- Contains the navigation bar that holds the button link to navigate off and on the pages-->
         <header id="header">
@@ -222,44 +224,24 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         <!-- Contains the main role or function of the selected page where it holds the data and the main contents of the page -->
         <main id="main">
             <!-- contains the form of login -->
-            <div class="login-container">
+            <div class="login-container"> 
                 <span style="color: white;" >Welcome to</span>
                 <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
                 <span style="color: white;">&</span>
                 <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
-                
-                <!--?php
-                $DBHost = "localhost"; //hostname
-                $DBUser = "root"; //username
-                $DBPass = ""; //password
-                $DBName = "afpdb"; //Name
-                $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
-
-                if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
-                    if (isset($_POST['submit'])) { // Check if the form is submitted
-                    $AccUsername = $_POST['emp_username'];
-                    $AccPass = $_POST['emp_password'];
-                        $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
-                        $result = $conn->query($query);
-                        $row = $result->fetch_assoc();
-                        if ($result->num_rows > 0) {
-                            header("Location: http://localhost/AFP/dashboardAFP.html");
-                            exit();
-                        } 
-                        
-                        else { ?><style>#password{border: 2px solid #c51919};</style>?php }
-                    }
-                ?>-->
-
 
                 <form class="login-form" method="post">
                     <div class="form-group">
                         <label for="username">Enter your Username:</label>
-                        <input type="text" id="username" name="emp_username" value="<?php echo isset($_POST['emp_username']) ? htmlspecialchars($_POST['emp_username']) : ''; ?>" required>
+                        <input type="text" id="username" name="empUser" placeholder="Username" 
+                        style="<?php echo $errorStyleUsername; ?>"
+                        required>
                     </div>
                     <div class="form-group">
                         <label for="password">Enter your Password:</label>
-                        <input type="password" id="password" name="emp_password" required>
+                        <input type="password" id="password" name="emp_password" placeholder="Password" 
+                        style="<?php echo $errorStylePassword; ?>"
+                        required>
                     </div>
                     
                     <div class="form-group" id="SignBttn">
@@ -273,34 +255,6 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                         <a href="http://localhost/AFP/Register.php" id="signUp">Sign-Up</a>
                     </div>
                 </form>
-            <!-- Database for the login-->
-                <!--?php
-                    $DBHost = "localhost"; //hostname
-                    $DBUser = "root"; //username
-                    $DBPass = ""; //password
-                    $DBName = "afpdb"; //Name
-                    $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
-                    if(!$conn) {die("Connection failed:" . mysqli_connect_error());}
-
-                    if (isset($_POST['submit'])) { // Assuming your submit button has the name 'submit'
-                        $AccUsername = $_POST['emp_username'];
-                        $AccPass = $_POST['emp_password'];
-
-                        $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
-                        $result = $conn->query($query);
-
-                        if ($result->num_rows > 0) {
-                            header("Location: http://localhost/AFP/dashboardAFP.html");
-                            echo "Login successful!";
-                            // Perform additional actions, such as setting session variables
-                            // Close the database connection
-                        $conn->close();
-                        } else { echo "Login failed. Please check your username and password.";}
-                            
-                            
-                    }
-                 ?>-->
-</form>
             </div>
         </main>
         <!-- Footer -->
