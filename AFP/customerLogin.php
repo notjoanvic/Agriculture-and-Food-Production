@@ -1,4 +1,4 @@
-<!-- Database for the login-->
+<!-- Database for the custoemr login-->
 <?php
 $DBHost = "localhost"; //hostname
 $DBUser = "root"; //username
@@ -7,10 +7,10 @@ $DBName = "afpdb"; //Name
 $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
 if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
     if (isset($_POST['submit'])) { // Check if the form is submitted
-        $AccUsername = $_POST['empUser'];
-        $AccPass = $_POST['emp_password'];
+        $AccUsername = $_POST['uUsername'];
+        $AccPass = $_POST['uPassword'];
         
-            $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
+            $query = "SELECT * FROM customer WHERE customer_Username='$AccUsername' AND customer_Password='$AccPass'";
             $result = $conn->query($query);
             $row = $result->fetch_assoc();
 
@@ -182,8 +182,6 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         #orSignup {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 25px;
         }
         #orSignup img {
             margin: 20px 10px 0 10px;
@@ -244,7 +242,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                     <a href="products.html"><span>Products</span></a>
                     <a href="servicesAFP.html"><span>Services<span></a>
                     <div id="dropdown">
-                    <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="http://localhost/AFP/loginAFP.php" style="border: none;"><span>Log-in</span></a>
+                    <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="http://localhost/AFP/customerLogin.php" style="border: none;"><span>Log-in</span></a>
                         <div id="dropdown-container">
                             <a class="dropdown-content" href="http://localhost/AFP/customerLogin.php">Customer</a>
                             <a class="dropdown-content" href="http://localhost/AFP/loginAFP.php">Employee</a>
@@ -257,7 +255,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         <main id="main">
             <!-- contains the form of login -->
             <div class="login-container"> 
-                <center><span style="color: white;" >Welcome to</span></center>
+                <center><span style="color: white;" >Welcome <span style="color: rgb(10, 148, 10);">Dear</span> <span style=" color:rgb(250, 201, 151);">customers</span></span></center>
                 <h2><span style="color: rgb(10, 148, 10);">Agriculture</span>
                 <span style="color: white;">&</span>
                 <span style=" color:rgb(250, 201, 151);">Food Production</span></h2>
@@ -265,13 +263,13 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                 <form class="login-form" method="post">
                     <div class="form-group">
                         <label for="username">Enter your Username:</label>
-                        <input type="text" id="username" name="empUser" placeholder="Username" 
+                        <input type="text" id="username" name="uUsername" placeholder="Username" 
                         style="<?php echo $errorStyleUsername; ?>"
                         required>
                     </div>
                     <div class="form-group">
                         <label for="password">Enter your Password:</label>
-                        <input type="password" id="password" name="emp_password" placeholder="Password" 
+                        <input type="password" id="password" name="uPassword" placeholder="Password" 
                         style="<?php echo $errorStylePassword; ?>"
                         required>
                     </div>
@@ -284,7 +282,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                             <a href="#"><img id="x" src="Pics/Login-Pics/xicon.webp"/></a>
                         </div>
                         <hr>
-
+                        <a href="http://localhost/AFP/Register.php" id="signUp">Sign-Up</a>
                     </div>
                 </form>
             </div>

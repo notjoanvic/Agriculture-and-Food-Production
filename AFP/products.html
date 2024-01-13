@@ -33,7 +33,6 @@
         position:relative;
         display: flex;
         background-color: #184911;  
-       
     }
     #menu {
         position: absolute;
@@ -41,6 +40,7 @@
         text-align: center;
         right: 0;
         padding: 10px 10px 5px 5px;
+        display: inline-flex;
     }
     /* liness in between ng menus */
     #menu a {   
@@ -51,7 +51,29 @@
         font-size: 25px;
         color:white;
         border-radius: 15px;
+    }
 
+    /* Drop down Login */
+    #dropdown-container {
+        display: none;
+        position: absolute;
+        background-color: grey;
+        border-radius: 20%;
+        width:90px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    #dropdown-container a {
+        color: black;
+        padding: 5px;
+        font-size: 20px;
+        border-right: none;
+    }
+    #dropdown-container a:hover {
+        background-color: #ddd;
+    }
+    #dropdown:hover #dropdown-container {
+        display: block;
     }
 
     /*MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNN*/
@@ -149,7 +171,13 @@
                     <a href="aboutAFP.html"><span>About</span></a>
                     <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="products.html"><span>Products</span></a>
                     <a href="servicesAFP.html"><span>Services<span></a>
-                    <a href="http://localhost/AFP/loginAFP.php"><span>Log-in</span></a>
+                    <div id="dropdown">
+                        <a href="#"><span>Log-in</span></a>
+                        <div id="dropdown-container">
+                            <a class="dropdown-content" href="http://localhost/AFP/customerLogin.php">Customer</a>
+                            <a class="dropdown-content" href="http://localhost/AFP/loginAFP.php">Employee</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </header>
