@@ -63,6 +63,29 @@
       text-decoration: underline #fdde87c7;
     }
 
+    /* Drop down Login */
+    #dropdown-container {
+        display: none;
+        position: absolute;
+        background-color: grey;
+        border-radius: 20%;
+        width:90px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    #dropdown-container a {
+        color: black;
+        padding: 5px;
+        font-size: 20px;
+        border-right: none;
+    }
+    #dropdown-container a:hover {
+        background-color: #ddd;
+    }
+    #dropdown:hover #dropdown-container {
+        display: block;
+    }
+
     /*MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNN*/
     #main {
       position: relative;
@@ -162,28 +185,13 @@
       }
     }
 
-    /* Drop down Login */
-    #dropdown-container {
-        display: none;
-        position: absolute;
-        background-color: grey;
-        border-radius: 20%;
-        width:90px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
+    .style-red{
+      color:#d80303;
+      margin-top:10px;
+      font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+
     }
-    #dropdown-container a {
-        color: black;
-        padding: 5px;
-        font-size: 20px;
-        border-right: none;
-    }
-    #dropdown-container a:hover {
-        background-color: #ddd;
-    }
-    #dropdown:hover #dropdown-container {
-        display: block;
-    }
+    
 
     /*FOOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTEEEEEEEEEEEEEEEEEEEERRRRRRRRR*/
     #footer {
@@ -240,6 +248,7 @@
 
     <main id="main">
       <div class="container"> <center style="margin-bottom:10px;"><span style="color: rgb(10, 148, 10);">Agriculture</span> <span style="color: white;">&</span> <span style=" color:rgb(250, 201, 151);">Food Production</span></center>
+      <hr>
         <div class="message"> <center style="margin-bottom:1  0px;"><span style="color: white;">Sign Up and Harvest from our Agriculture & Food Production Website</span></center>  
           <form action="#" method="post">
             <div class="form-group"> <label for="email">Email:</label> <input type="email" id="email" name="uEmail" placeholder="Email" value="<?php echo isset($_POST['uEmail']) ? htmlspecialchars($_POST['uEmail']) : ''; ?>" required> </div>
@@ -248,36 +257,58 @@
             <div class="form-group"> <label for="password">Password:</label> <input type="password" id="password" name="uPassword" placeholder="Password" required> </div> 
             <input type="submit" value="Register" name="sign-up">
             <hr width="100%">
-            <div style="display: flex; justify-content: center; text-align: center;"><a href="http://localhost/AFP/loginAFP.php" id="signIn">Sign-in</a></div>
+            <div style="display: flex; justify-content: center; text-align: center;"><a href="http://localhost/AFP/customerLogin.php" id="signIn">Sign-in</a></div>
           </form>
 
           <?php $DBHost = "localhost"; //hostname 
-        $DBUser = "root"; //username 
-        $DBPass = ""; //password 
-        $DBName = "afpdb"; //Name 
-        $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName); 
-        if(!$conn) {die("Connection failed:" . mysqli_connect_error());} 
+          $DBUser = "root"; //username 
+          $DBPass = ""; //password 
+          $DBName = "afpdb"; //Name 
+          $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName); 
+          if(!$conn) {die("Connection failed:" . mysqli_connect_error());} 
 
-        if(isset($_POST['sign-up'])) {
-          $checkQuery = "SELECT * FROM customer WHERE customer_Username = '$_POST[uUsername]'";
-          $checkResult = mysqli_query($conn, $checkQuery);
+            if(isset($_POST['sign-up'])) {
+            $checkQuery = "SELECT * FROM customer WHERE customer_Username = '$_POST[uUsername]'";
+            $checkResult = mysqli_query($conn, $checkQuery);
 
-            if (mysqli_num_rows($checkResult) > 0){
-              echo "<div style='color: #c51919'><center>Username is already taken. Please choose a different username.</center></div>";
-            } elseif (strlen($_POST['uPassword']) < 8 ) {
-              $errorStylePassword = ";";
-              echo "<div style='color: #c51919'><center>Password must be at least 8 characters.</center></div>";
-            } else {
+              if (mysqli_num_rows($checkResult) > 0){
+                echo "<div class='style-red'><center>Username is already taken. Please choose a different username.</center></div>";
+              } elseif (strlen($_POST['uPassword']) < 8 ) {
+                echo "<div class='style-red'><center>Password must be at least 8 characters.</center></div>";
+              } else {
               $sql = "INSERT into customer (`customer_Email`,`customer_Name`,`customer_Username`,`customer_Password`) 
               values('$_POST[uEmail]','$_POST[uName]','$_POST[uUsername]','$_POST[uPassword]')"; 
               
               $result = mysqli_query($conn,$sql);
-              if ($result) {
-              echo "<div style='color: GREEN'><center>Registered Successfully</center></div>";
-              } else { echo "<div style='color: #c51919'><center>Registration failed. Please try again.</center></div>";}  
+                if ($result) {
+                echo "<div style='color: GREEN; margin-top:10px; font-family: SFProText-Regular, Helvetica, Arial, sans-serif;'><center>Registered Successfully</center></div>";
+                } else { echo "<div class='style-red'><center>Registration failed. Please try again.</center></div>";}  
+                exit();
+              }
             }
-          }
-?>
+          ?>
+          <!--<script>
+            document.addEventListener('DOMContentLoaded', function() {
+              function setLinearGradientBackground() {
+                var container = document.querySelector('.container');
+                container.style.background = 'linear-gradient(to right, #4CAF50, #FFFF00)';
+              }
+              ?php if (isset($_POST['sign-up'])) { ?>
+              setLinearGradientBackground();
+              ?php } ?>
+            });
+          </script>-->
+
+          <!--<script>
+            document.addEventListener('DOMContentLoaded', function() {
+              ?php if (isset($_POST['sign-up'])) { 
+                ?>
+                  var container = document.querySelector('.container');
+                  container.style.background = 'linear-gradient(#052501, #052501, #052501, #052501, #052501, #052501, #052501, #052501, #052501, #052501, white)';
+                ?php 
+              } ?>
+            });
+          </script>-->
         </div>
       </div>
     </main>
