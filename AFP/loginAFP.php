@@ -7,17 +7,18 @@ $DBName = "afpdb"; //Name
 $conn = mysqli_connect($DBHost, $DBUser, $DBPass, $DBName);
 if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
     if (isset($_POST['submit'])) { // Check if the form is submitted
+        $AccEmail = $_POST['empUser'];
         $AccUsername = $_POST['empUser'];
         $AccPass = $_POST['emp_password'];
         
-            $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass'";
+            $query = "SELECT * FROM employee WHERE employee_Username='$AccUsername' AND employee_PW='$AccPass' or employee_Email='$AccEmail' AND employee_PW='$AccPass'";
             $result = $conn->query($query);
             $row = $result->fetch_assoc();
 
             //$displayUsername = isset($row['employee_Username']) === $AccUsername && isset($row['employee_PW']) !== $AccPass ? htmlspecialchars($AccUsername) : ''; 
         
         if ($result->num_rows > 0) {
-            header("Location: http://localhost/AFP/dashboardAFP.html");
+            header("Location: http://localhost/AFP/dashboard.html");
             exit();
         }
         else {
@@ -205,7 +206,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
             }
         }
 
-        #dropdown-container {
+        /* #dropdown-container {
             display: none;
             position: absolute;
             background-color: grey;
@@ -225,7 +226,7 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
         }
         #dropdown:hover #dropdown-container {
             display: block;
-        }
+        } */
 
 
 </style>
@@ -243,13 +244,14 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                     <a href="aboutAFP.html"><span>About</span></a>
                     <a href="products.html"><span>Products</span></a>
                     <a href="servicesAFP.html"><span>Services<span></a>
-                    <div id="dropdown">
+                    <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="http://localhost/AFP/loginAFP.php" style="border: none;"><span>Log-in</span></a>
+                    <!-- <div id="dropdown">
                     <a style="text-decoration: underline rgb(197, 115, 47); color: rgb(197, 115, 47);" href="http://localhost/AFP/loginAFP.php" style="border: none;"><span>Log-in</span></a>
                         <div id="dropdown-container">
                             <a class="dropdown-content" href="http://localhost/AFP/customerLogin.php">Customer</a>
                             <a class="dropdown-content" href="http://localhost/AFP/loginAFP.php">Employee</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </nav>
         </header>
@@ -284,7 +286,6 @@ if (!$conn) {die("Connection failed:" . mysqli_connect_error());}
                             <a href="#"><img id="x" src="Pics/Login-Pics/xicon.webp"/></a>
                         </div>
                         <hr>
-
                     </div>
                 </form>
             </div>
